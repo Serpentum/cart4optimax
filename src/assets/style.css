@@ -1,3 +1,9 @@
 * {
     font-family: 'Roboto', sans-serif;
 }
+
+.mainContainer {
+    flex: 1 0 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+}

@@ -1,8 +1,10 @@
 import React, {useEffect} from "react";
 import { useSelector, useDispatch } from 'react-redux'
 import {RootState} from "../../store";
-import {getCart} from "../../store/cartSlice";
+import {CartStoreI, getCart} from "../../store/cartSlice";
 import s from './s.module.css'
+import Cart from "../../components/Cart";
+import clsx from "clsx";
 
 const CartPage = (): JSX.Element => {
   const dispatch = useDispatch()
@@ -10,14 +12,17 @@ const CartPage = (): JSX.Element => {
     loading,
     items,
     error,
-  } = useSelector((store: RootState) => store.cart)
+  } = useSelector((store: RootState): CartStoreI => store.cart)
 
   useEffect(() => {
     dispatch(getCart())
   }, []);
 
   return (
-    <div className={s.container}>
+    <div className={clsx("mainContainer", s.container)}>
+      <div className={s.cartWrapper}>
+        <Cart items={items} loading={loading}/>
+      </div>
     </div>
   )
 }

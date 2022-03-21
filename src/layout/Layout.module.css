@@ -15,8 +15,8 @@
     background: #282c34;
     color: #fff;
     padding: 5px;
-    margin-top: auto;
 }
 .content{
     flex: 1 1 100%;
+    display: flex;
 }

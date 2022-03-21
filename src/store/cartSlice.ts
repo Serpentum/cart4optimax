@@ -1,6 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
+import {CartI} from "../sagas/cart/workers";
 
-const initialState = {
+export interface CartStoreI {
+  loading: boolean
+  items: CartI | []
+  error: string
+}
+
+const initialState: CartStoreI = {
   items: [],
   loading: false,
   error: ''

@@ -1,11 +1,13 @@
+import './index.css';
+import '../src/assets/style.css'
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
 import reportWebVitals from './reportWebVitals';
 import Layout from "./layout";
 import {Provider} from "react-redux";
 import {store} from "./store";
 import CartPage from "./pages/CartPage";
+
 
 ReactDOM.render(
   <React.StrictMode>
