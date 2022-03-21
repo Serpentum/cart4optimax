@@ -1,9 +1,10 @@
 import {createSlice} from "@reduxjs/toolkit";
-import {CartI} from "../sagas/cart/workers";
+import {CartItemT} from "../components/Cart/CartItem";
+
 
 export interface CartStoreI {
   loading: boolean
-  items: CartI | []
+  items: CartItemT[] | []
   error: string
 }
 
@@ -30,17 +31,21 @@ const cartSlice = createSlice({
       store.loading = initialState.loading
       store.error = payload
     },
-    increase: ({items}, {payload}) => {
-      console.log(payload)
-    }
+    changeQuantity: (store, {payload}) => {
+      store.items[payload.id].quantity = payload.amount
+    },
+    deleteItem: (store, {payload}) => {
+      store.items = store.items.filter((el, id) => id !== payload.id)
+    },
   },
 })
 
 export const {
   getCart,
   setCart,
-  increase,
-  setCartRequestError
+  setCartRequestError,
+  changeQuantity,
+  deleteItem,
 } = cartSlice.actions
 
 export default cartSlice.reducer

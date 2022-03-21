@@ -5,4 +5,132 @@
     background: #f5f5f5;
     padding: 20px;
     border-radius: 6px;
+    box-sizing: border-box;
+    display: flex;
+}
+
+.header{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header svg{
+    cursor: pointer;
+    border-radius: 6px;
+    padding: 2px;
+    transition: background-color .2s ease;
+}
+
+.header svg:hover{
+   background: rgba(40, 44, 52, 0.09);
+}
+
+.header svg:active{
+    background: rgba(247, 47, 47, 0.53);
+}
+
+.headerInfo{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.loaderAlign{
+    justify-content: center;
+    align-items: center;
+}
+
+.itemsAlign{
+    display: flex;
+    align-items: flex-end;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.imgWrapper{
+    flex: 1 0 300px;
+    display: flex;
+    align-items: center;
+    background: #fff;
+}
+
+@media screen and (max-width: 760px) {
+    .imgWrapper{
+        flex: 1 0 150px;
+    }
+}
+
+.img{
+    width: 100%;
+}
+
+.itemContainer{
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    background: #fff;
+    border-radius: 6px;
+}
+
+@media screen and (max-width: 760px) {
+    .itemContainer{
+        flex-direction: column;
+    }
+}
+
+.info{
+    flex: 1 0 300px;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.description{
+    font-size: 1em;
+    color: rgba(40, 44, 52, 0.82);
+}
+
+.control{
+    display: flex;
+    align-items: center;
+    gap: 10px
+}
+
+.section{
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.empty{
+    display: flex;
+    justify-content: flex-start;
+    gap: 26px
+}
+
+.empty svg{
+    width: 150px;
+    height: 150px;
+}
+
+.empty p{
+    position: relative;
+    padding: 12px;
+    border-radius: 6px;
+    border-bottom-left-radius: 0;
+    height: fit-content;
+    background: rgba(40, 44, 52, 0.12);
+}
+
+.empty p:after{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -5px;
+    width: 0;
+    height: 0;
+    border-left: 0px solid transparent;
+    border-right: 5px solid transparent;
+
+    border-top: 5px solid rgba(40, 44, 52, 0.12);
 }

@@ -1,22 +1,11 @@
 import {put} from "redux-saga/effects"
 import {setCart, setCartRequestError} from "../../store/cartSlice";
 import {fakeRequest} from "../../libs/fakeRequest";
-
-export type CartItemT = {
-  productId: number
-  productName: string
-  quantity: number
-  price: number
-  img: string
-}
-
-export interface CartI {
-  items: CartItemT[]
-}
+import {CartItemT} from "../../components/Cart/CartItem";
 
 export function* getCartRequest() {
   try{
-    const res: CartI = yield fakeRequest(() => require('../../API/cartItems.json'), 1000)
+    const res: CartItemT[] = yield fakeRequest(() => require('../../API/cartItems.json'), 2500)
     yield put(setCart(res))
   } catch (e) {
     yield put(setCartRequestError((e as Error).message))

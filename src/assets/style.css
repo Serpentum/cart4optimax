@@ -2,8 +2,17 @@
     font-family: 'Roboto', sans-serif;
 }
 
+p{
+    margin: 0;
+}
+
 .mainContainer {
+    padding: 20px 0;
     flex: 1 0 100%;
     max-width: 1080px;
     margin: 0 auto;
+}
+
+.boldModifier{
+    font-weight: bold;
 }

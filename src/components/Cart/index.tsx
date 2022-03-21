@@ -1,16 +1,58 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import s from './s.module.css'
-import {CartI} from "../../sagas/cart/workers";
+import CartItem, {CartItemT} from "./CartItem";
+import clsx from "clsx";
+import Preloader from "../Preloader";
+import Button from "../UI/Button";
+
+import EmptyCart from '../../assets/ico/emptyCart'
 
 export interface CartPropI {
-  items: CartI | []
+  items: CartItemT[] | []
   loading: boolean
 }
 
 const Cart = ({items, loading}: CartPropI): JSX.Element => {
-  return (
-    <div className={s.container}>
 
+  const [total, setTotal] = useState<number>(0)
+
+  useEffect((): void => {
+    if(items.length) {
+      setTotal([...items].reduce((acc: number, el: CartItemT): number => (Number(acc) + (Number(el.price) * el.quantity)), 0))
+    }
+  }, [items]);
+
+
+  return (
+    <div className={clsx(s.container, {
+      [s.loaderAlign]: loading || !items.length,
+      [s.itemsAlign]: items.length > 0
+    })}>
+      {
+        !loading
+          ? items.map((item, id) => <CartItem {...item} id={id}/>)
+          :
+          <>
+            <p style={{marginRight: 10}}>Wait a sec...</p>
+            <Preloader />
+          </>
+      }
+      {
+        !!items.length && (
+          <div className={s.control}>
+            <span>Total: {total.toFixed(2)}$</span>
+            <Button.Default label={'Continue'} onClick={() => {}}/>
+          </div>
+        )
+      }
+      {
+        (!items.length && !loading) && (
+          <div className={s.empty}>
+            <EmptyCart />
+            <p>...Oh no! Cart is empty.</p>
+          </div>
+        )
+      }
     </div>
   );
 };

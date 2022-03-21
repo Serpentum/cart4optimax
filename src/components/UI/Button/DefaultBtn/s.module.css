@@ -1,0 +1,24 @@
+.container{
+    padding: 20px 40px;
+    height: fit-content;
+    background: #282c34;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color .2s ease-out;
+}
+
+.container:hover{
+    background: #384459;
+}
+
+.container:active{
+    background: #808389;
+}
+
+.label{
+    color: #fff;
+    display: block;
+    user-select: none;
+}

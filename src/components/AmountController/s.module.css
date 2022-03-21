@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+}
+
+.input{
+    width: 30px;
+    border: none;
+    text-align: center;
+}
+
