@@ -1,12 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Layout from "./layout";
+import {Provider} from "react-redux";
+import {store} from "./store";
+import CartPage from "./pages/CartPage";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Layout>
+        <CartPage />
+      </Layout>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
