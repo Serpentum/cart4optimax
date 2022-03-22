@@ -32,10 +32,10 @@ const Cart = ({items, loading}: CartPropI): JSX.Element => {
         !loading
           ? items.map((item, id) => <CartItem {...item} id={id}/>)
           :
-          <>
+          <div className={s.preloader}>
             <p style={{marginRight: 10}}>Wait a sec...</p>
             <Preloader />
-          </>
+          </div>
       }
       {
         !!items.length && (

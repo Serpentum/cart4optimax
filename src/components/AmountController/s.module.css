@@ -8,3 +8,9 @@
     text-align: center;
 }
 
+@media screen and (max-width: 760px) {
+    .input{
+        padding: 0 10px;
+        font-size: 1.2em;
+    }
+}

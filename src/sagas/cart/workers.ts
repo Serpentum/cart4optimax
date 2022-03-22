@@ -5,7 +5,7 @@ import {CartItemT} from "../../components/Cart/CartItem";
 
 export function* getCartRequest() {
   try{
-    const res: CartItemT[] = yield fakeRequest(() => require('../../API/cartItems.json'), 2500)
+    const res: CartItemT[] = yield fakeRequest(() => require('../../API/cartItems.json'), 5500)
     yield put(setCart(res))
   } catch (e) {
     yield put(setCartRequestError((e as Error).message))

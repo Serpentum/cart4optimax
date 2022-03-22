@@ -36,6 +36,9 @@ const CartItem = ({
 
   return (
     <div className={s.itemContainer}>
+      <div onClick={handleDelete}>
+        <Trash/>
+      </div>
       <div className={s.imgWrapper}>
         <img className={s.img} src={img} alt={`${productName} model`}/>
       </div>
