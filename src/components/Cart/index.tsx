@@ -37,7 +37,7 @@ const Cart = ({items, loading}: CartPropI): JSX.Element => {
         }
         {
           !!items.length && (
-            <div className={s.control}>
+            <div className={s.controlMain}>
               <span>Total: {total.toFixed(2)}$</span>
               <Button.Default label={'Continue'} onClick={() => {}}/>
             </div>
