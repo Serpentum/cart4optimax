@@ -12,6 +12,13 @@
     animation: AnimationName 1s ease infinite;
 }
 
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
 @-webkit-keyframes AnimationName {
     0%{
         background-position:0% 42%;

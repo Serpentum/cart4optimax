@@ -1,0 +1,29 @@
+.section{
+    display: flex;
+    flex-direction: column;
+}
+.section > h3 {
+    margin-bottom: 10px;
+}
+.row{
+    padding: 25px 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 1%;
+}
+.row:not(:last-child) {
+    border-bottom: 1px solid silver;
+}
+.row:last-child {
+    padding-bottom: 0;
+}
+.customInput{
+    width: 100% !important;
+}
+.customInputMini{
+    width: 100% !important;
+}
+.control{
+    align-self: flex-end;
+}
+

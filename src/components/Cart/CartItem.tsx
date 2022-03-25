@@ -10,19 +10,21 @@ export type CartItemT = {
   id?: number
   productId: number
   productName: string
+  description?: string
   quantity: number
   price: number
   img: string
 }
 
 const CartItem = ({
-  id,
-  productId,
-  productName,
-  price,
-  img,
-  quantity
-}: CartItemT) => {
+                    id,
+                    productId,
+                    productName,
+                    description,
+                    price,
+                    img,
+                    quantity
+                  }: CartItemT) => {
 
   const dispatch = useDispatch()
 
@@ -34,13 +36,12 @@ const CartItem = ({
     dispatch(deleteItem({id}))
   }
 
+  const tempImg = "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ea/Glasses_%28example%29.svg/512px-Glasses_%28example%29.svg.png"
+
   return (
     <div className={s.itemContainer}>
-      <div onClick={handleDelete}>
-        <Trash/>
-      </div>
       <div className={s.imgWrapper}>
-        <img className={s.img} src={img} alt={`${productName} model`}/>
+        <img className={s.img} src={img || tempImg} alt={`${productName} model`}/>
       </div>
       <div className={clsx(s.section, s.info)}>
         <header className={s.header}>
@@ -54,16 +55,25 @@ const CartItem = ({
         </header>
         <p>
           <span className="boldModifier">Description: </span>
-          <span className={s.description}>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cumque dolore ea error facere fugit ipsa laborum, molestias necessitatibus nihil obcaecati officia officiis pariatur provident, quas quidem sit voluptate voluptatem.
-          </span>
+          {
+            description
+              ? <span className={s.description}>{description}</span>
+              : (
+                <span className={s.description}>
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid cumque dolore ea error facere fugit ipsa laborum, molestias necessitatibus nihil obcaecati officia officiis pariatur provident, quas quidem sit voluptate voluptatem.
+                </span>
+              )
+          }
         </p>
         <div className={s.control}>
-          <AmountController value={quantity} setter={handleChange} />
+          <AmountController value={quantity} setter={handleChange}/>
+          <div className={s.trashMobile} onClick={handleDelete}>
+            <Trash/>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default memo(CartItem);
+export default CartItem

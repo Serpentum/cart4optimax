@@ -16,22 +16,14 @@ const customBtnJSS: CSSProperties = {
   alignItems: "center",
 }
 
+export const onChangeCurtCounters = (e: ChangeEvent<HTMLInputElement>, setter: (x: number) => void) => {
+  const toNum = Number(e.currentTarget.value)
+  setter(toNum)
+}
+
 const AmountController = ({value, setter}: AmountControllerI): JSX.Element => {
 
   const [localVal, setLocalVal] = useState<number>(value)
-
-  const onChange = (e: ChangeEvent<HTMLInputElement>) => {
-    const toNum = Number(e.currentTarget.value)
-    if(toNum <= 0) {
-      setLocalVal(1)
-      return
-    }
-    if(toNum >= 99) {
-      setLocalVal(99)
-      return
-    }
-    setLocalVal(toNum)
-  }
 
   const increase = () => {
     if(Number(value) + 1 < 100) {
@@ -45,8 +37,18 @@ const AmountController = ({value, setter}: AmountControllerI): JSX.Element => {
   }
 
   const onBlur = () => {
+    if(localVal > 99) {
+      setter(99)
+      return
+    }
+    if(localVal <= 0) {
+      setter(1)
+      return
+    }
     setter(localVal)
   }
+
+  const onChange = (e: ChangeEvent<HTMLInputElement>) => onChangeCurtCounters(e, setter)
 
   useEffect(() => {
     setLocalVal(value)
@@ -54,9 +56,23 @@ const AmountController = ({value, setter}: AmountControllerI): JSX.Element => {
 
   return (
     <div className={s.container}>
-      <Button.Default tabIndex={1} label={"+"} onClick={increase} customStyle={customBtnJSS} />
-      <input tabIndex={1} className={s.input} type="text" value={localVal} onChange={onChange} onBlur={onBlur}/>
-      <Button.Default tabIndex={1} label={"-"} onClick={decrease} customStyle={customBtnJSS} />
+      <Button.Default
+        label={"+"}
+        onClick={increase}
+        customStyle={customBtnJSS}
+      />
+      <input
+        className={s.input}
+        type="number"
+        value={localVal}
+        onChange={onChange}
+        onBlur={onBlur}
+      />
+      <Button.Default
+        label={"-"}
+        onClick={decrease}
+        customStyle={customBtnJSS}
+      />
     </div>
   );
 };

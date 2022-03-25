@@ -7,19 +7,27 @@ export interface DefaultBtnI {
   onClick: () => void
   customStyle?: CSSProperties
   tabIndex?: number
+  type?: "button" | "submit"
 }
 
-const DefaultBtn = ({label, onClick, customStyle, tabIndex}: DefaultBtnI) => {
+const DefaultBtn = ({
+                      label,
+                      onClick,
+                      customStyle,
+                      tabIndex,
+                      type = "submit"
+}: DefaultBtnI) => {
   return (
-    <div
+    <button
       className={clsx(s.container)}
+      type={type}
       style={customStyle}
       tabIndex={tabIndex || 0}
       onClick={onClick}
       onKeyDown={e => e.key === "Enter" && onClick()}
     >
       <span className={s.label}>{label}</span>
-    </div>
+    </button>
   );
 };
 

@@ -8,6 +8,10 @@ export interface CartStoreI {
   error: string
 }
 
+export interface AddCartItemI {
+  payload: CartItemT
+}
+
 const initialState: CartStoreI = {
   items: [],
   loading: false,
@@ -37,6 +41,9 @@ const cartSlice = createSlice({
     deleteItem: (store, {payload}) => {
       store.items = store.items.filter((el, id) => id !== payload.id)
     },
+    addCartElement: (store, {payload}: AddCartItemI) => {
+      store.items = [payload, ...store.items]
+    }
   },
 })
 
@@ -46,6 +53,7 @@ export const {
   setCartRequestError,
   changeQuantity,
   deleteItem,
+  addCartElement,
 } = cartSlice.actions
 
 export default cartSlice.reducer

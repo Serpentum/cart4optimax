@@ -5,6 +5,7 @@ import {CartStoreI, getCart} from "../../store/cartSlice";
 import s from './s.module.css'
 import Cart from "../../components/Cart";
 import clsx from "clsx";
+import AddToCartForm from "../../components/AddToCartForm";
 
 const CartPage = (): JSX.Element => {
   const dispatch = useDispatch()
@@ -21,6 +22,7 @@ const CartPage = (): JSX.Element => {
   return (
     <div className={clsx("mainContainer", s.container)}>
       <div className={s.cartWrapper}>
+        <AddToCartForm />
         <Cart items={items} loading={loading}/>
       </div>
     </div>
