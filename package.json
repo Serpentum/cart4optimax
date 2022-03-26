@@ -1,7 +1,8 @@
 {
   "name": "cart",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "homepage": "https://serpentum.github.io/cart4optimax",
   "dependencies": {
     "@hookform/resolvers": "^2.8.8",
     "@reduxjs/toolkit": "^1.8.0",
@@ -32,6 +33,8 @@
     "yup": "^0.32.11"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest -c jest.config.unit.js",

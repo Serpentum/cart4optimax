@@ -47,9 +47,11 @@ const Cart = ({items, loading}: CartPropI): JSX.Element => {
         }
         {
           (!items.length && !loading) && (
-            <div className={s.empty}>
-              <EmptyCart />
-              <p>...Oh no! Cart is empty.</p>
+            <div className={s.loaderAlign}>
+              <div className={clsx(s.empty)}>
+                <EmptyCart />
+                <p>...Oh no! Cart is empty.</p>
+              </div>
             </div>
           )
         }

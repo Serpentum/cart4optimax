@@ -36,6 +36,7 @@
 
 .loaderAlign{
     width: 100%;
+    display: flex;
     justify-content: center;
     align-items: center;
 }
@@ -137,6 +138,7 @@
 .empty{
     display: flex;
     justify-content: flex-start;
+
     gap: 26px
 }
 
