@@ -6,3 +6,5 @@
 - Redux Toolkit
 - Saga
 - Vanilla CSS
+- Jest
+- Enzyme
