@@ -5,7 +5,7 @@ import watchersRootSaga from "../sagas";
 
 
 // init middlewares
-const sagaMiddleware = createSagaMiddleware()
+export const sagaMiddleware = createSagaMiddleware()
 
 // combine reducers
 const rootReducer = combineReducers({

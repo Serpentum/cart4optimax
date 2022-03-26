@@ -9,12 +9,16 @@ import * as yup from "yup"
 import {yupResolver} from "@hookform/resolvers/yup";
 import {CartItemT} from "../Cart/CartItem";
 import {nanoid} from "nanoid";
-import {useDispatch} from "react-redux";
-import {addCartElement} from "../../store/cartSlice";
+import {useDispatch, useSelector} from "react-redux";
+import {addCartElement, CartStoreI} from "../../store/cartSlice";
+import {RootState} from "../../store";
 
 const AddToCartForm = () => {
 
   const dispatch = useDispatch()
+  const {
+    items,
+  } = useSelector((store: RootState): CartStoreI => store.cart)
 
   const schema = yup.object().shape({
     productName: yup.string().required('This field is required'),
@@ -23,7 +27,7 @@ const AddToCartForm = () => {
     description: yup.string().required('This field is required'),
   })
 
-  const {control, handleSubmit, watch, setValue, formState: { errors }} = useForm<{
+  const {control, handleSubmit, watch, setValue, formState: {errors}} = useForm<{
     quantity: number
     img: string
     productName: string
@@ -63,6 +67,7 @@ const AddToCartForm = () => {
     } = data
 
     const item: CartItemT = {
+      id: items.length,
       img,
       quantity,
       productName,
@@ -71,7 +76,6 @@ const AddToCartForm = () => {
       productId,
     }
 
-    console.log(item)
     dispatch(addCartElement(item))
   }
 
@@ -105,10 +109,12 @@ const AddToCartForm = () => {
             />
           </div>
           <div className={s.row}>
-            <Input className={s.customInput} control={control} name={"description"} label={"Description"} error={errors}/>
+            <Input className={s.customInput} control={control} name={"description"} label={"Description"}
+                   error={errors}/>
           </div>
           <div className={clsx(s.row, s.control)}>
-            <Button.Default label={'Continue'} onClick={() => {}}/>
+            <Button.Default label={'Continue'} onClick={() => {
+            }}/>
           </div>
         </div>
       </form>

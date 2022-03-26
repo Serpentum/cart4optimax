@@ -28,7 +28,7 @@ const Cart = ({items, loading}: CartPropI): JSX.Element => {
     <UIContainer>
       <div className={clsx(s.wrapper, s.itemsAlign)}>
         {
-          !!items.length && items.map((item, id) => <CartItem key={item.productId} {...item} id={id}/>)
+          !!items.length && items.map((item, id: number) => <CartItem key={item.productId} {...item} id={id}/>)
         }
         {
           loading && (

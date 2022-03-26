@@ -1,10 +1,10 @@
 import React, {ChangeEvent, CSSProperties, useEffect, useState} from 'react';
-import s from './s.module.css'
+import s from './s.module.css';
 import Button from "../UI/Button";
 
 export interface AmountControllerI {
   value: number
-  setter: (newValue?: number) => void
+  setter: (newValue: number) => void
 }
 
 const customBtnJSS: CSSProperties = {
@@ -57,7 +57,9 @@ const AmountController = ({value, setter}: AmountControllerI): JSX.Element => {
   return (
     <div className={s.container}>
       <Button.Default
+        id={"increaseBtn"}
         label={"+"}
+        type={"button"}
         onClick={increase}
         customStyle={customBtnJSS}
       />
@@ -69,7 +71,9 @@ const AmountController = ({value, setter}: AmountControllerI): JSX.Element => {
         onBlur={onBlur}
       />
       <Button.Default
+        id={"decreaseBtn"}
         label={"-"}
+        type={"button"}
         onClick={decrease}
         customStyle={customBtnJSS}
       />

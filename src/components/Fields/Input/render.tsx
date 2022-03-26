@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import {nanoid} from "nanoid";
 import s from './s.module.css'
 import clsx from "clsx";
@@ -29,7 +29,7 @@ export const RenderInput = ({
   error,
 }: RenderInputI) => {
 
-  const id = nanoid()
+  const id = useMemo(nanoid, [])
   const [isFocus, setIsFocus] = useState<boolean | null>(null)
 
   return (

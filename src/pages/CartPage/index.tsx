@@ -12,7 +12,6 @@ const CartPage = (): JSX.Element => {
   const {
     loading,
     items,
-    error,
   } = useSelector((store: RootState): CartStoreI => store.cart)
 
   useEffect(() => {

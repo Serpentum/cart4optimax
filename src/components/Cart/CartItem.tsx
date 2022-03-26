@@ -1,13 +1,13 @@
 import React, {ChangeEvent, memo} from 'react';
 import s from './s.module.css'
 import clsx from "clsx";
-import AmountController from "../AmountController/AmountController";
+import AmountController from "../AmountController";
 import {useDispatch} from "react-redux";
 import {changeQuantity, deleteItem} from "../../store/cartSlice";
 import Trash from '../../assets/ico/trashBin'
 
 export type CartItemT = {
-  id?: number
+  id: number
   productId: number
   productName: string
   description?: string
@@ -28,7 +28,7 @@ const CartItem = ({
 
   const dispatch = useDispatch()
 
-  const handleChange = (newVal?: number) => {
+  const handleChange = (newVal: number) => {
     dispatch(changeQuantity({id, amount: newVal}))
   }
 

@@ -5,6 +5,7 @@ import clsx from "clsx";
 export interface DefaultBtnI {
   label: string
   onClick: () => void
+  id?: string,
   customStyle?: CSSProperties
   tabIndex?: number
   type?: "button" | "submit"
@@ -15,10 +16,12 @@ const DefaultBtn = ({
                       onClick,
                       customStyle,
                       tabIndex,
-                      type = "submit"
+                      type = "submit",
+                      id
 }: DefaultBtnI) => {
   return (
     <button
+      id={id}
       className={clsx(s.container)}
       type={type}
       style={customStyle}
