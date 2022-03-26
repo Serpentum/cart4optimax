@@ -26,9 +26,9 @@ const cartSlice = createSlice({
       store.loading = true
     },
     setCart: (store, {payload}) => {
-      store.items = payload.items
+      store.items = [...store.items, ...payload.items]
       store.loading = false
-      store.error = ''
+      store.error = initialState.error
     },
     setCartRequestError: (store, {payload}) => {
       store.items = initialState.items

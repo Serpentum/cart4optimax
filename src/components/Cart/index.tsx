@@ -26,14 +26,16 @@ const Cart = ({items, loading}: CartPropI): JSX.Element => {
 
   return (
     <UIContainer>
-      <div className={clsx(s.wrapper, {
-        [s.loaderAlign]: loading || !items.length,
-        [s.itemsAlign]: items.length > 0
-      })}>
+      <div className={clsx(s.wrapper, s.itemsAlign)}>
         {
-          !loading
-            ? items.map((item, id) => <CartItem key={item.productId} {...item} id={id}/>)
-            : <Preloader />
+          !!items.length && items.map((item, id) => <CartItem key={item.productId} {...item} id={id}/>)
+        }
+        {
+          loading && (
+            <div className={s.loaderAlign}>
+              <Preloader />
+            </div>
+          )
         }
         {
           !!items.length && (
