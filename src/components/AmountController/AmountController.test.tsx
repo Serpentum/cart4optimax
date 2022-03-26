@@ -19,7 +19,7 @@ describe('<AmountController />', () => {
     expect(wrapper.html()).toMatchSnapshot();
   });
 
-  it('is rendered', () => {
+  it('be rendered', () => {
     expect(wrapper.find('div>input[type="number"]').length).toBe(1)
   })
 
