@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/cart4optimax/static/css/main.4829aa93.css",
-    "main.js": "/cart4optimax/static/js/main.b95bf119.js",
+    "main.css": "/cart4optimax/static/css/main.afdf5e06.css",
+    "main.js": "/cart4optimax/static/js/main.fc6e36e2.js",
     "static/js/787.658bc779.chunk.js": "/cart4optimax/static/js/787.658bc779.chunk.js",
     "index.html": "/cart4optimax/index.html",
-    "main.4829aa93.css.map": "/cart4optimax/static/css/main.4829aa93.css.map",
-    "main.b95bf119.js.map": "/cart4optimax/static/js/main.b95bf119.js.map",
+    "main.afdf5e06.css.map": "/cart4optimax/static/css/main.afdf5e06.css.map",
+    "main.fc6e36e2.js.map": "/cart4optimax/static/js/main.fc6e36e2.js.map",
     "787.658bc779.chunk.js.map": "/cart4optimax/static/js/787.658bc779.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.4829aa93.css",
-    "static/js/main.b95bf119.js"
+    "static/css/main.afdf5e06.css",
+    "static/js/main.fc6e36e2.js"
   ]
 }
