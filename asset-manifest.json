@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Serpentum/cart4optimax.git/static/css/main.4829aa93.css",
-    "main.js": "/Serpentum/cart4optimax.git/static/js/main.aa5baf35.js",
-    "static/js/787.658bc779.chunk.js": "/Serpentum/cart4optimax.git/static/js/787.658bc779.chunk.js",
-    "index.html": "/Serpentum/cart4optimax.git/index.html",
-    "main.4829aa93.css.map": "/Serpentum/cart4optimax.git/static/css/main.4829aa93.css.map",
-    "main.aa5baf35.js.map": "/Serpentum/cart4optimax.git/static/js/main.aa5baf35.js.map",
-    "787.658bc779.chunk.js.map": "/Serpentum/cart4optimax.git/static/js/787.658bc779.chunk.js.map"
+    "main.css": "/cart/static/css/main.4829aa93.css",
+    "main.js": "/cart/static/js/main.1faac481.js",
+    "static/js/787.658bc779.chunk.js": "/cart/static/js/787.658bc779.chunk.js",
+    "index.html": "/cart/index.html",
+    "main.4829aa93.css.map": "/cart/static/css/main.4829aa93.css.map",
+    "main.1faac481.js.map": "/cart/static/js/main.1faac481.js.map",
+    "787.658bc779.chunk.js.map": "/cart/static/js/787.658bc779.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.4829aa93.css",
-    "static/js/main.aa5baf35.js"
+    "static/js/main.1faac481.js"
   ]
 }
