@@ -1,4 +1,4 @@
-## Curt 4 Optimax
+## Cart 4 Optimax
 
 ### stack:
 - TypeScript
